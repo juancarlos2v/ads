@@ -1,95 +1,102 @@
+"use client";
 import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
+//import ModalAlert from "@components/ModalAlert";
+//import { ThreeDots } from "react-loader-spinner";
 
-export default function Home() {
+const Page = () => {
+  //const { BA_COLABORATIVA_URL, isLoading, error, clearError, loginOpenID } =useLogin();
+
+  const logoBA = "/logo-ba.png";
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div className="bg-login-mb">
+      <div
+        className="d-md-none shadow"
+        style={{
+          height: "7rem",
+          padding: "var(--padding-small)",
+          backgroundColor: "var(--white)",
+        }}
+      >
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src={logoBA}
+          //layout='intrinsic'
+          width={80}
+          height={55}
+          alt="logo-ba"
+          style={{ objectFit: "contain" }}
           priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        ></Image>
+        <p
+          style={{ fontSize: "20px", fontWeight: "600" }}
+        >{`Administrador de sitios`}</p>
+      </div>
+      <div className="d-flex flex-md-row-reverse  flex-column  justify-content-center align-items-center  ">
+        <div className="d-flex flex-column justify-content-center align-items-center  p-login-content col-md-6  col-11 p-5 ">
+          <h1
+            className=""
+            style={{ color: "var(--grisulado-900)" }}
+          >{`Bienvenido`}</h1>
+          <button
+            //onClick={loginOpenID}
+            type="button"
+            className="p-2 mb-3 d-flex btn btn btn-primary  justify-content-center align-items-center"
+            //href={urlAuth}
+            href="#/"
+            style={{
+              width: "15rem",
+            }}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+            Ingresar con CUIL
+          </button>
+          <div
+            className=" d-flex-column align-items-center"
+            style={{ borderTop: "solid 0.1rem var(--gray-light)" }}
           >
-            Read our docs
-          </a>
+            <p className="flex-lg-row flex-column col-12 d-flex m-0 mt-md-2 justify-content-center align-items-center">
+              ¿No tenés Usuario? &nbsp;
+              <Link
+                className=""
+                target="_blank"
+                href="#/"
+                //href={BA_COLABORATIVA_URL}
+              >
+                {` Solicita uno aqui`}
+              </Link>
+            </p>
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          className=" d-none d-md-flex h-100 col-md-6 col-12 vh-100  flex-column justify-content-center align-items-center "
+          style={{ backgroundColor: "var(--bg-neutral)" }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="">
+            <Image
+              src={logoBA}
+              width={300}
+              height={150}
+              alt="logo-ba"
+              style={{ objectFit: "contain" }}
+              priority
+            ></Image>
+            <h2
+              style={{ color: "var(--grisulado-900)", fontSize: "35px" }}
+            >{`Administrador de sitios`}</h2>
+          </div>
+        </div>
+        {/* {error != "" && (
+          <ModalAlert clearError={clearError} message={error} open={!!error} />
+        )} */}
+      </div>
+      <span></span>
+      <style jsx>{`
+        box-shadow: 1px 9px 18px 8px rgba(0, 0, 0, 0.33);
+        -webkit-box-shadow: 1px 9px 18px 8px rgba(0, 0, 0, 0.33);
+        -moz-box-shadow: 1px 9px 18px 8px rgba(0, 0, 0, 0.33);
+      `}</style>
     </div>
   );
-}
+};
+
+export default Page;
