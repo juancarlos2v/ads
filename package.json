@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@gcba/obelisco-v2": "^1.6.0",
+    "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.7",
+    "boxicons": "^2.1.4",
+    "material-symbols": "^0.34.1",
     "next": "15.5.0",
     "react": "19.1.0",
     "react-bootstrap": "^2.10.10",

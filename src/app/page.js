@@ -1,102 +1,45 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-//import ModalAlert from "@components/ModalAlert";
-//import { ThreeDots } from "react-loader-spinner";
+import { TableSites } from "@/features/home/components/TableSites";
+import { Pagination } from "@/shared/components/Pagination";
 
-const Page = () => {
-  //const { BA_COLABORATIVA_URL, isLoading, error, clearError, loginOpenID } =useLogin();
-
-  const logoBA = "/logo-ba.png";
-
+const page = () => {
   return (
-    <div className="bg-login-mb">
+    <>
       <div
-        className="d-md-none shadow"
+        className="d-flex align-items-center p-5"
         style={{
-          height: "7rem",
-          padding: "var(--padding-small)",
-          backgroundColor: "var(--white)",
+          backgroundImage: "url('/map.png')",
+          height: "15rem",
+          backgroundPosition: "center",
         }}
       >
-        <Image
-          src={logoBA}
-          //layout='intrinsic'
-          width={80}
-          height={55}
-          alt="logo-ba"
-          style={{ objectFit: "contain" }}
-          priority
-        ></Image>
-        <p
-          style={{ fontSize: "20px", fontWeight: "600" }}
-        >{`Administrador de sitios`}</p>
-      </div>
-      <div className="d-flex flex-md-row-reverse  flex-column  justify-content-center align-items-center  ">
-        <div className="d-flex flex-column justify-content-center align-items-center  p-login-content col-md-6  col-11 p-5 ">
-          <h1
-            className=""
-            style={{ color: "var(--grisulado-900)" }}
-          >{`Bienvenido`}</h1>
-          <button
-            //onClick={loginOpenID}
-            type="button"
-            className="p-2 mb-3 d-flex btn btn btn-primary  justify-content-center align-items-center"
-            //href={urlAuth}
-            href="#/"
-            style={{
-              width: "15rem",
-            }}
-          >
-            Ingresar con CUIL
-          </button>
-          <div
-            className=" d-flex-column align-items-center"
-            style={{ borderTop: "solid 0.1rem var(--gray-light)" }}
-          >
-            <p className="flex-lg-row flex-column col-12 d-flex m-0 mt-md-2 justify-content-center align-items-center">
-              ¿No tenés Usuario? &nbsp;
-              <Link
-                className=""
-                target="_blank"
-                href="#/"
-                //href={BA_COLABORATIVA_URL}
-              >
-                {` Solicita uno aqui`}
-              </Link>
-            </p>
+        <form className="col-6">
+          <div className="form-label-container">
+            <h2 style={{ color: "white" }}>Administrador de Sitios</h2>
           </div>
-        </div>
-        <div
-          className=" d-none d-md-flex h-100 col-md-6 col-12 vh-100  flex-column justify-content-center align-items-center "
-          style={{ backgroundColor: "var(--bg-neutral)" }}
-        >
-          <div className="">
-            <Image
-              src={logoBA}
-              width={300}
-              height={150}
-              alt="logo-ba"
-              style={{ objectFit: "contain" }}
-              priority
-            ></Image>
-            <h2
-              style={{ color: "var(--grisulado-900)", fontSize: "35px" }}
-            >{`Administrador de sitios`}</h2>
+          <div className="search-container">
+            <input
+              type="search"
+              className="form-control input-search input-search-with-button"
+              id="search-btn"
+              placeholder="Buscar..."
+              name="search"
+              aria-label="Campo de búsqueda"
+            />
+            <button className="reset" type="reset" aria-label="Borrar"></button>
+            <button
+              className="button-search"
+              type="submit"
+              aria-label="Buscar"
+            ></button>
           </div>
-        </div>
-        {/* {error != "" && (
-          <ModalAlert clearError={clearError} message={error} open={!!error} />
-        )} */}
+        </form>
       </div>
-      <span></span>
-      <style jsx>{`
-        box-shadow: 1px 9px 18px 8px rgba(0, 0, 0, 0.33);
-        -webkit-box-shadow: 1px 9px 18px 8px rgba(0, 0, 0, 0.33);
-        -moz-box-shadow: 1px 9px 18px 8px rgba(0, 0, 0, 0.33);
-      `}</style>
-    </div>
+      <div className="pt-5 pb-5">
+        <TableSites />
+        <Pagination />
+      </div>
+    </>
   );
 };
 
-export default Page;
+export default page;
