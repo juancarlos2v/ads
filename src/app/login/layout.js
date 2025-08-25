@@ -1,5 +1,5 @@
 import { Open_Sans, Nunito } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@gcba/obelisco-v2/dist/styles.css";
 

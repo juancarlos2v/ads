@@ -1,3 +1,4 @@
+"use client";
 import { Open_Sans, Nunito } from "next/font/google";
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,6 +7,8 @@ import "boxicons/css/boxicons.min.css";
 import { Footer } from "@/shared/components/Footer";
 import { Header } from "@/shared/components/Header";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
+import { metadata } from "@/app/metadata";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -13,18 +16,22 @@ const openSans = Open_Sans({
 });
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito" });
 
-export const metadata = {
-  title: "Administrador de sitios",
-  description: "ADS - Gobierno de la Ciudad de Buenos Aires",
-};
+// export const metadata = {
+//   title: "Administrador de sitios",
+//   description: "ADS - Gobierno de la Ciudad de Buenos Aires",
+// };
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+  const isLogin = pathname.startsWith("/login");
   return (
     <html lang="en">
+      <title>{metadata.title}</title>
+      <meta name="description" content={metadata.description} />
       <body className={`${openSans.variable} ${nunito.variable}`}>
-        <Header />
+        {!isLogin && <Header />}
         {children}
-        <Footer />
+        {!isLogin && <Footer />}
 
         <Script
           src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

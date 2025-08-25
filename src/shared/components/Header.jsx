@@ -4,14 +4,12 @@ export const Header = () => {
 
     return (
         <>
-
-
             <header className="o-header navbar" role="banner">
                 <a href="#main" className="skip-to-main-content-link">
                     Saltar al contenido principal
                 </a>
                 <div className="container header-container">
-                    <a href="https://buenosaires.gob.ar" className="navbar-brand">
+                    <a href="/" className="navbar-brand">
                         <img className="d-none d-xl-block" src={`${header}/logo_ba.svg`} alt="Gobierno de la Ciudad de Buenos Aires - Inicio" />
                         <img className="d-xl-none" src={`${header}/logo_ba_mobile.svg`} alt="Gobierno de la Ciudad de Buenos Aires - Inicio" />
                     </a>
@@ -43,7 +41,7 @@ export const Header = () => {
                                     target="_blank"
                                 >
                                     <span className="material-symbols-rounded" aria-hidden="true">person</span>
-                                    <span className="btn-text">Ingresar</span>
+                                    <span className="btn-text">Juan Carlos Vilcherrez</span>
                                 </a>
                             </div>
                         </div>
@@ -52,7 +50,7 @@ export const Header = () => {
                                 <p className="navbar-sections-title">Secciones</p>
                                 <ul className="nav nav-pills nav-sections">
                                     <li className="nav-item">
-                                        <a className="nav-link nav-link-lg" href="#">
+                                        <a className="nav-link nav-link-lg" href="/nuevo-sitio">
                                             <span>Nuevo sitio</span>
                                         </a>
                                     </li>
