@@ -4,7 +4,9 @@
     "baseUrl": ".",
     "paths": {
       "@images/*": ["public/*"],
-      "@home/components/*": ["src/features/home/components"],
+      "@home/components/*": ["src/features/home/components/*"],
+      "@usuarios/components/*": ["src/features/usuarios/components/*"],
+      "@shared/components/*": ["src/shared/components/*"],
       "@/*": ["src/*"]
     }
   }
