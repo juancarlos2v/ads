@@ -1,27 +1,43 @@
+'use client'
+import Link from "next/link"
+import { usePathname, useSearchParams } from "next/navigation"
+
 export const Header = () => {
 
+    const path = usePathname()
+
+
     const header = "https://raw.githubusercontent.com/gcba/Obelisco-V2/a9f1f6d58f0277896f2abf958148b5a20f089ada/app/public/images"
+    const title = path !== "/" ? "Administrador de Sitios" : ""
 
     return (
         <>
-            <header className="o-header navbar" role="banner">
-                <a href="#main" className="skip-to-main-content-link">
+            <header className="o-header navbar pt-4" role="banner">
+                <Link href="#main" className="skip-to-main-content-link">
                     Saltar al contenido principal
-                </a>
+                </Link>
                 <div className="container header-container">
-                    <a href="/" className="navbar-brand">
+                    <Link href="/" className="navbar-brand d-flex align-items-end link-inherit " >
                         <img className="d-none d-xl-block" src={`${header}/logo_ba.svg`} alt="Gobierno de la Ciudad de Buenos Aires - Inicio" />
                         <img className="d-xl-none" src={`${header}/logo_ba_mobile.svg`} alt="Gobierno de la Ciudad de Buenos Aires - Inicio" />
-                    </a>
+                        {title && <p className="title-brand">{title}</p>}
+                        <style jsx>{`
+                        .title-brand{
+                                width:0 !important;
+                                font-weight: 600; 
+                                font-size: 18px
+                            }
+                        `}</style>
+                    </Link>
                     <div className="navbar-login-mobile">
-                        <a
+                        <Link
                             className="btn btn-lg btn-icon btn-outline-tertiary"
                             href="#"
                             target="_blank"
                         >
                             <span className="material-symbols-rounded" aria-hidden="true">person</span>
                             <span className="btn-text">Ingresar</span>
-                        </a>
+                        </Link>
                     </div>
                     <button
                         className="navbar-toggler"
@@ -35,30 +51,30 @@ export const Header = () => {
                     <div className="collapse navbar-collapse" id="navbarContent6">
                         <div className="navbar-content">
                             <div className="navbar-login">
-                                <a
+                                <Link
                                     className="btn btn-lg btn-outline-tertiary"
                                     href="#"
                                     target="_blank"
                                 >
                                     <span className="material-symbols-rounded" aria-hidden="true">person</span>
                                     <span className="btn-text">Juan Carlos Vilcherrez</span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="navbar-content-extended">
-                            <nav>
+                            <nav >
                                 <p className="navbar-sections-title">Secciones</p>
                                 <ul className="nav nav-pills nav-sections">
                                     <li className="nav-item">
-                                        <a className="nav-link nav-link-lg" href="/nuevo-sitio">
+                                        <Link className="nav-link nav-link-lg" href="/nuevo-sitio">
                                             <span>Nuevo sitio</span>
-                                        </a>
+                                        </Link>
                                     </li>
 
                                     <li className="nav-item">
-                                        <a className="nav-link nav-link-lg" href="#">
+                                        <Link className="nav-link nav-link-lg" href="#">
                                             <span>Sincronización</span>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
 
@@ -78,12 +94,12 @@ export const Header = () => {
                                                 </span>
                                             </button>
                                             <div className="dropdown-menu">
-                                                <a className="dropdown-item" href="#">
+                                                <Link className="dropdown-item" href="/usuarios">
                                                     <span className="item-text">Usuarios</span>
-                                                </a>
-                                                <a className="dropdown-item" href="#">
+                                                </Link>
+                                                <Link className="dropdown-item" href="#/">
                                                     <span className="item-text">Auditoria</span>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </div>
                                     </li>
@@ -94,7 +110,7 @@ export const Header = () => {
                     </div>
                 </div>
                 <div className="header-backdrop"></div>
-            </header>
+            </header >
 
 
         </>
