@@ -12,6 +12,7 @@
     "@gcba/obelisco-v2": "^1.6.0",
     "@popperjs/core": "^2.11.8",
     "@react-google-maps/api": "^2.20.7",
+    "axios": "^1.12.1",
     "bootstrap": "^5.3.7",
     "boxicons": "^2.1.4",
     "material-symbols": "^0.34.1",

@@ -11,7 +11,6 @@ const page = () => {
     return (
         <div className="padding-sides pt-5 pb-5 ">
             <div className="mb-5">
-
                 <h2>Usuarios</h2>
                 <div className=" d-flex justify-content-between mt-4">
                     <Buscador />
