@@ -21,3 +21,22 @@ export async function POST(req) {
     );
   }
 }
+
+export async function GET(req) {
+  const request = new NextRequest(req.url);
+  const cuil = request.nextUrl.searchParams.get("cuil");
+
+  const urlfinal = `${url}/usuarios/ad/${cuil}`;
+  console.log(urlfinal);
+
+  try {
+    const response = await axios.get(urlfinal);
+    return NextResponse.json(response.data);
+  } catch (error) {
+    console.error("Error backend:", error.response?.data);
+    return NextResponse.json(
+      { error: error.response?.data },
+      { status: error.response?.status || 500 }
+    );
+  }
+}

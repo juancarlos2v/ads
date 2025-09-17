@@ -1,10 +1,14 @@
 'use client'
+import { useUser } from "@/features/usuarios/hooks/useUser"
 import { Buscador } from "@shared/components/Buscador"
 import { MigasPan } from "@shared/components/MigasPan"
 
 const enlacesMigas = [{ nombre: "Inicio", enlace: '/' }, { nombre: "Usuarios", enlace: '/usuarios' }, { nombre: "Alta de usuario", enlace: '/usuarios/alta' }]
 
 const page = () => {
+
+    const { user, setUser, registerUser, getUserFromAD, result } = useUser()
+
     return (
         <div className="padding-sides pt-5 pb-5 bg-neutral">
 
@@ -23,7 +27,10 @@ const page = () => {
                         CUIL
                     </label>
                     <span className="badge-forms badge-required-forms">Requerido</span>
-                    <Buscador />
+                    <Buscador
+                        handle={getUserFromAD}
+                        response={result}
+                    />
 
                 </div>
                 {/* EMAIL ENCONTRADO */}
@@ -39,6 +46,7 @@ const page = () => {
                         id="input-text"
                         name="campoTexto"
                         aria-describedby="Texto"
+                        value={user.email}
                         disabled
                     />
                 </div>
@@ -55,6 +63,7 @@ const page = () => {
                         id="input-text"
                         name="campoTexto"
                         aria-describedby="Texto"
+                        value={user.area}
                         disabled
                     />
                 </div>
@@ -71,6 +80,7 @@ const page = () => {
                         id="input-text"
                         name="campoTexto"
                         aria-describedby="Texto"
+                        value={user.name}
                         disabled
                     />
                 </div>
@@ -88,6 +98,7 @@ const page = () => {
                         id="input-text"
                         name="campoTexto"
                         aria-describedby="Texto"
+                        value={user.lastName}
                         disabled
                     />
                 </div>
@@ -107,7 +118,12 @@ const page = () => {
                     </select>
                 </div>
 
-                <button type="button" className="btn btn-primary">Registrar</button>
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => registerUser(user.cuil)}
+                >Registrar
+                </button>
                 <button type="button" className="btn btn-outline-secondary">Volver</button>
             </div>
         </div>
